@@ -1,10 +1,10 @@
 <h1 align="center">
-  <img src="media/hero.svg" width="1200" alt="Live Price Shortcodes. Type a price once. Render it everywhere. Per-ounce, per-serving, per-month — always fresh.">
+  <img src="media/hero.svg" width="1200" alt="PriceOnce. Type a price once. Render it everywhere. Per-ounce, per-serving, per-month — always fresh.">
 </h1>
 
 <p align="center">
-  <a href="https://github.com/iSahinul/live-price-shortcodes/releases"><img src="https://img.shields.io/badge/version-0.1.0-151515?style=for-the-badge" alt="Version 0.1.0"></a>
-  <a href="https://github.com/iSahinul/live-price-shortcodes/stargazers"><img src="https://img.shields.io/github/stars/iSahinul/live-price-shortcodes?style=for-the-badge&color=151515" alt="GitHub stars"></a>
+  <a href="https://github.com/iSahinul/PriceOnce/releases"><img src="https://img.shields.io/badge/version-0.1.0-151515?style=for-the-badge" alt="Version 0.1.0"></a>
+  <a href="https://github.com/iSahinul/PriceOnce/stargazers"><img src="https://img.shields.io/github/stars/iSahinul/PriceOnce?style=for-the-badge&color=151515" alt="GitHub stars"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/free-GPL--2.0_license-E07B2A?style=for-the-badge" alt="Free, GPL-2.0 license"></a>
   <a href="#the-store-format"><img src="https://img.shields.io/badge/no_database-JSON_store-151515?style=for-the-badge" alt="No database — one JSON store"></a>
   <a href="#quick-start"><img src="https://img.shields.io/badge/WordPress-plugin-E07B2A?style=for-the-badge" alt="WordPress plugin"></a>
@@ -18,7 +18,7 @@
   <a href="#common-questions">Questions</a>
 </h3>
 
-**Live Price Shortcodes is a free, open-source WordPress plugin for affiliate and content sites.** Keep every product price in one JSON file. Your articles carry shortcodes, never typed numbers — so when a price changes, you update the file once and every post, page and guide is current on the next load, each price carrying the date you last checked it.
+**PriceOnce is a free, open-source WordPress plugin for affiliate and content sites.** Keep every product price in one JSON file. Your articles carry shortcodes, never typed numbers — so when a price changes, you update the file once and every post, page and guide is current on the next load, each price carrying the date you last checked it.
 
 ## What it does
 
@@ -41,16 +41,16 @@ An unknown id, a missing price, or a missing unit size renders an **empty string
 2. Copy `prices.example.json` to `prices.json` in the same folder, and put your products in it.
 3. Write shortcodes in any post or page. Done — there is no settings screen and nothing else to configure.
 
-To keep the store somewhere else, define `LPS_STORE_PATH` in `wp-config.php`, or use the `lps_store_path` filter.
+To keep the store somewhere else, define `PO_STORE_PATH` in `wp-config.php`, or use the `po_store_path` filter.
 
 ## The shortcodes
 
 | Shortcode | Renders |
 |---|---|
-| `[lps_price id="example-espresso-machine"]` | $299.95 at Example Store · checked Nov 7, 2026 |
-| `[lps_peroz id="example-coffee-beans"]` | $1.58 — the price ÷ unit size in ounces |
-| `[lps_perunit id="example-coffee-beans" amount="18"]` | the cost of 18 g at the product's unit size |
-| `[lps_permonth id="example-coffee-beans" dose="18" perday="2" days="30"]` | the monthly running cost of the habit |
+| `[po_price id="example-espresso-machine"]` | $299.95 at Example Store · checked Nov 7, 2026 |
+| `[po_peroz id="example-coffee-beans"]` | $1.58 — the price ÷ unit size in ounces |
+| `[po_perunit id="example-coffee-beans" amount="18"]` | the cost of 18 g at the product's unit size |
+| `[po_permonth id="example-coffee-beans" dose="18" perday="2" days="30"]` | the monthly running cost of the habit |
 
 ## The store format
 
