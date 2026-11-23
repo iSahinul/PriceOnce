@@ -1,33 +1,58 @@
-# Live Price Shortcodes
+<h1 align="center">
+  <img src="media/hero.svg" width="1200" alt="Live Price Shortcodes. Type a price once. Render it everywhere. Per-ounce, per-serving, per-month — always fresh.">
+</h1>
 
-Type a price once in a JSON store — render it everywhere with shortcodes, with checked-date stamps and per-unit figures that update themselves.
+<p align="center">
+  <a href="https://github.com/iSahinul/live-price-shortcodes/releases"><img src="https://img.shields.io/badge/version-0.1.0-151515?style=for-the-badge" alt="Version 0.1.0"></a>
+  <a href="https://github.com/iSahinul/live-price-shortcodes/stargazers"><img src="https://img.shields.io/github/stars/iSahinul/live-price-shortcodes?style=for-the-badge&color=151515" alt="GitHub stars"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/free-GPL--2.0_license-E07B2A?style=for-the-badge" alt="Free, GPL-2.0 license"></a>
+  <a href="#the-store-format"><img src="https://img.shields.io/badge/no_database-JSON_store-151515?style=for-the-badge" alt="No database — one JSON store"></a>
+  <a href="#quick-start"><img src="https://img.shields.io/badge/WordPress-plugin-E07B2A?style=for-the-badge" alt="WordPress plugin"></a>
+</p>
 
-## The problem
+<h3 align="center">
+  <a href="#quick-start">Install</a> &nbsp;·&nbsp;
+  <a href="#what-it-does">See how it works</a> &nbsp;·&nbsp;
+  <a href="#the-shortcodes">Shortcodes</a> &nbsp;·&nbsp;
+  <a href="#the-store-format">Store format</a> &nbsp;·&nbsp;
+  <a href="#common-questions">Questions</a>
+</h3>
 
-Affiliate and content sites repeat the same product prices across dozens of articles. Prices change; the typed numbers do not. Readers land on stale prices, and fixing them means editing every post by hand. Product-box plugins solve this only for one retailer's API — and none of them compute the figures readers actually compare: cost per ounce, per serving, or per month.
+**Live Price Shortcodes is a free, open-source WordPress plugin for affiliate and content sites.** Keep every product price in one JSON file. Your articles carry shortcodes, never typed numbers — so when a price changes, you update the file once and every post, page and guide is current on the next load, each price carrying the date you last checked it.
 
-## What this plugin does
+## What it does
 
-Prices live in one JSON file. Articles contain shortcodes, never typed numbers. Update the file and every article is current on the next page load.
+<img src="media/flow.svg" width="1200" alt="How it works: one JSON price store feeds shortcodes that render live prices and per-unit figures in every article.">
+
+*One store, shortcodes in your articles, fresh numbers everywhere. Update the file — not fifty posts.*
+
+Typed prices go stale. Product-box plugins fix that only inside one retailer's API, and none of them compute the figures readers actually compare. This plugin renders, from the same live price:
+
+- the price itself, with its store and **checked date**;
+- **per-ounce** cost (`price ÷ unit size`);
+- **per-serving** cost (any gram amount at the product's unit size);
+- **per-month** running cost of a daily habit.
+
+An unknown id, a missing price, or a missing unit size renders an **empty string** — never a stale number, never an error on the page.
+
+## Quick start
+
+1. Copy this folder into `wp-content/plugins/` — or drop the single PHP file into `wp-content/mu-plugins/`.
+2. Copy `prices.example.json` to `prices.json` in the same folder, and put your products in it.
+3. Write shortcodes in any post or page. Done — there is no settings screen and nothing else to configure.
+
+To keep the store somewhere else, define `LPS_STORE_PATH` in `wp-config.php`, or use the `lps_store_path` filter.
+
+## The shortcodes
 
 | Shortcode | Renders |
 |---|---|
 | `[lps_price id="example-espresso-machine"]` | $299.95 at Example Store · checked Nov 7, 2026 |
-| `[lps_peroz id="example-coffee-beans"]` | $1.58 (price ÷ unit size in oz) |
-| `[lps_perunit id="example-coffee-beans" amount="18"]` | cost of 18 g at the product's unit size |
-| `[lps_permonth id="example-coffee-beans" dose="18" perday="2" days="30"]` | monthly running cost of the habit |
+| `[lps_peroz id="example-coffee-beans"]` | $1.58 — the price ÷ unit size in ounces |
+| `[lps_perunit id="example-coffee-beans" amount="18"]` | the cost of 18 g at the product's unit size |
+| `[lps_permonth id="example-coffee-beans" dose="18" perday="2" days="30"]` | the monthly running cost of the habit |
 
-An unknown id, a missing price, or a missing unit size renders an empty string — never a stale number, never an error on the page.
-
-## Install
-
-1. Copy this folder into `wp-content/plugins/` (or drop the single PHP file into `wp-content/mu-plugins/`).
-2. Copy `prices.example.json` to `prices.json` in the same folder and edit it with your products.
-3. Use the shortcodes in any post or page.
-
-To keep the store elsewhere, define `LPS_STORE_PATH` in `wp-config.php`, or use the `lps_store_path` filter.
-
-## Store format
+## The store format
 
 ```json
 {
@@ -46,12 +71,46 @@ To keep the store elsewhere, define `LPS_STORE_PATH` in `wp-config.php`, or use 
 }
 ```
 
-`price`, and at least one of `unit_oz` / `unit_grams` for the per-unit shortcodes, are the only fields the math needs. `checked_date` is the day you last verified the price — the stamp next to the price is what keeps the claim honest.
+`price` is the only field every product needs. The per-unit shortcodes also need one of `unit_oz` / `unit_grams`. `checked_date` is the day you last verified the price — the stamp beside the price is what keeps the claim honest.
 
-## Why a file, not the database?
+**Why a file, not the database?** So the store can be version-controlled, generated by a script (a price tracker, a spreadsheet export) and diffed like code. This plugin is the rendering half; pair it with any checker you like.
 
-So the store can be version-controlled, generated by a script (a price tracker, a spreadsheet export), and diffed like code. This plugin is the rendering half; pair it with any checker you like.
+## Common questions
 
-## License
+<details>
+<summary><strong>Does it fetch prices automatically?</strong></summary>
 
-GPL-2.0-or-later — see [LICENSE](LICENSE).
+No — on purpose. Fetching is a separate job (a tracker, a script, or you, once a week). This plugin guarantees the other half: whatever is in the store is what every page shows, with the date it was checked. A rendered price can never silently drift from the store.
+
+</details>
+
+<details>
+<summary><strong>What happens if a product is missing from the store?</strong></summary>
+
+The shortcode renders nothing. No placeholder, no wrong number, no PHP error. On a live site, an absent price is honest; a stale one is not.
+
+</details>
+
+<details>
+<summary><strong>Which currencies are supported?</strong></summary>
+
+USD, INR, EUR, GBP, AUD, CAD and JPY get their symbols automatically; any other currency code prints before the amount.
+
+</details>
+
+<details>
+<summary><strong>Can I use it outside coffee products?</strong></summary>
+
+Yes. The per-unit maths is generic: per-ounce suits any packaged good, per-serving suits anything sold by weight, and per-month suits any daily-use product. Coffee is simply where it was born — on a site where typed per-shot costs kept going stale.
+
+</details>
+
+## About the creator
+
+**Built by Sahinul Islam Laskar** — I run content sites and the automation behind them: SEO measurement, price tracking and deal monitoring. This plugin is the rendering engine from a live affiliate site, extracted and open-sourced because the problem it solves — typed prices going stale across dozens of articles — belongs to every content site owner.
+
+[GitHub](https://github.com/iSahinul)
+
+---
+
+Copyright © 2026 Sahinul Islam Laskar. [GPL-2.0 license](LICENSE).

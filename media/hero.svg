@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-label="Live Price Shortcodes — type a price once, render it everywhere">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151515"/>
+      <stop offset="1" stop-color="#26221c"/>
+    </linearGradient>
+    <linearGradient id="tag" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5b942"/>
+      <stop offset="1" stop-color="#e07b2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="420" fill="url(#bg)"/>
+  <circle cx="1060" cy="60" r="150" fill="#f5b942" opacity="0.08"/>
+  <circle cx="90" cy="380" r="120" fill="#f5b942" opacity="0.06"/>
+
+  <!-- price tag illustration -->
+  <g transform="translate(120,96) rotate(-10)">
+    <path d="M20 20 H190 L300 130 a28 28 0 0 1 0 40 L190 280 a28 28 0 0 1 -40 0 L20 150 Z" fill="url(#tag)"/>
+    <circle cx="72" cy="72" r="17" fill="#151515"/>
+    <circle cx="72" cy="72" r="8" fill="#f7f3ea"/>
+    <text x="74" y="182" font-family="Georgia, serif" font-size="48" font-weight="bold" fill="#151515">$299.95</text>
+    <text x="86" y="210" font-family="Verdana, sans-serif" font-size="18" fill="#3a2c14">checked Nov 7, 2026</text>
+  </g>
+  <path d="M118 78 q40 -34 74 -6" stroke="#f5b942" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+  <!-- title block -->
+  <text x="520" y="168" font-family="Georgia, serif" font-size="66" font-weight="bold" fill="#f7f3ea">Live Price</text>
+  <text x="520" y="240" font-family="Georgia, serif" font-size="66" font-weight="bold" fill="#f5b942">Shortcodes</text>
+  <text x="522" y="292" font-family="Verdana, sans-serif" font-size="25" fill="#cfc8b8">Type a price once. Render it everywhere.</text>
+  <text x="522" y="330" font-family="Verdana, sans-serif" font-size="20" fill="#9a927f">Per-ounce · per-serving · per-month — always fresh.</text>
+</svg>
