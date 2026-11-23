@@ -115,7 +115,7 @@ Yes. The per-unit maths is generic: per-ounce suits any packaged good, per-servi
 
 **Built by Sahinul Islam Laskar** — I run content sites and the automation behind them: SEO measurement, price tracking and deal monitoring. This plugin is the rendering engine from a live affiliate site, extracted and open-sourced because the problem it solves — typed prices going stale across dozens of articles — belongs to every content site owner.
 
-[GitHub](https://github.com/iSahinul)
+[GitHub](https://github.com/iSahinul) · [LinkedIn](https://www.linkedin.com/in/isahinul/) · [X (@iSahinul)](https://x.com/iSahinul)
 
 ---
 
