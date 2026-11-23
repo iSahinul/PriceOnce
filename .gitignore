@@ -1,0 +1,5 @@
+# PriceOnce local files
+prices.json
+*.log
+__pycache__/
+.DS_Store
