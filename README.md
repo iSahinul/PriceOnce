@@ -8,7 +8,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/free-GPL--2.0_license-E07B2A?style=for-the-badge" alt="Free, GPL-2.0 license"></a>
   <a href="#the-store-format"><img src="https://img.shields.io/badge/no_database-JSON_store-151515?style=for-the-badge" alt="No database — one JSON store"></a>
   <a href="#quick-start"><img src="https://img.shields.io/badge/WordPress-plugin-E07B2A?style=for-the-badge" alt="WordPress plugin"></a>
-  <img src="https://img.shields.io/badge/agent--ready-Claude%20%C2%B7%20ChatGPT%20%C2%B7%20Codex-151515?style=for-the-badge" alt="Agent-ready: works in Claude, ChatGPT and Codex">
+  <img src="https://img.shields.io/badge/agent--ready-Claude%20%C2%B7%20Codex%20%C2%B7%20ChatGPT%20%C2%B7%20Copilot-151515?style=for-the-badge" alt="Agent-ready: works in Claude, Codex, ChatGPT and Copilot">
 </p>
 
 <h3 align="center">
@@ -78,11 +78,11 @@ To keep the store somewhere else, define `PO_STORE_PATH` in `wp-config.php`, or 
 
 ## Give it to your AI
 
-Paste this into Claude, ChatGPT or Codex and let your assistant do the setup:
+Paste this into Claude, Codex, ChatGPT or Copilot and let your assistant do the setup:
 
 ```text
 Install the PriceOnce plugin from this repo on my WordPress site. Read
-skill/SKILL.md first. Then help me move the prices in my posts into the
+.agents/skills/priceonce/SKILL.md first. Then help me move the prices in my posts into the
 price store and replace typed prices with PriceOnce shortcodes. Never
 type a price or a per-ounce / per-month figure yourself - the shortcodes
 render them, with the date each price was checked.
@@ -90,9 +90,14 @@ render them, with the date each price was checked.
 
 ## Use it as an agent skill
 
-This repo ships a `SKILL.md` (in the `skill/` folder) in the open Agent Skills format — the same file works in Claude, ChatGPT and Codex. Install the skill and your AI assistant learns the PriceOnce discipline on its own: never type a price, always use the shortcodes, keep the store valid.
+This repo ships a `SKILL.md` in the open Agent Skills format. There is one canonical copy — [`.agents/skills/priceonce/`](.agents/skills/priceonce/) — and `.claude/skills/priceonce` is a link to it, so every tool installs the same file and there is no second copy to keep in sync.
 
-Copy the `skill/` folder into your agent's skills directory (for example `~/.claude/skills/priceonce/` or `~/.agents/skills/priceonce/`), keeping `SKILL.md` inside it.
+- **Claude** — in a clone of this repo, Claude Code picks the skill up through the `.claude/skills/` link; nothing to install. To use it in every project, copy `.agents/skills/priceonce/` to `~/.claude/skills/priceonce/`.
+- **Codex** — reads `.agents/skills/` directly: a clone works as-is, or copy the folder to `~/.agents/skills/priceonce/`.
+- **ChatGPT** — upload the `priceonce` folder from `.agents/skills/` as a skill, or paste the prompt above with the repo link.
+- **Copilot** — GitHub Copilot reads `.agents/skills/` and `.claude/skills/` in a cloned repo, so a clone works as-is.
+
+Install the skill and your AI assistant learns the PriceOnce discipline on its own: never type a price, always use the shortcodes, keep the store valid.
 
 ## Common questions
 

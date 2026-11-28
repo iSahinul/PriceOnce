@@ -7,7 +7,8 @@ store via shortcodes: `[po_price]`, `[po_peroz]`, `[po_perunit]`,
 ## Working in this repo
 - The plugin is `priceonce.php`; the store format is documented in the
   README ("The store format") and shown in `prices.example.json`.
-- The user-facing skill for this project lives in `skill/SKILL.md` —
+- The user-facing skill for this project lives in
+  `.agents/skills/priceonce/SKILL.md` (linked from `.claude/skills/priceonce`) —
   read it before editing prices or advising on content.
 
 ## House rules
